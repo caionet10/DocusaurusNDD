@@ -1,0 +1,12 @@
+CONFIGURAÇÃO DO DOCUSAURUS
+
+1. Criação dos endpoints
+	Copiar o arquivo json do Swagger para o projeto do docusaurus.
+	Configurar caminho do arquivo json na configuração do plugin da API.
+	Configurar a pasta onde serão gerados os arquivos MDX
+	Executar o comando: yarn docusaurus gen-api-docs all
+	
+	No arquivo "sidebar" gerado, alterar a última linha 
+		De: "export default sidebar.apisidebar";
+		Para: "export default sidebar;
+	

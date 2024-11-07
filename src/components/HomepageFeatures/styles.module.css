@@ -1,0 +1,73 @@
+/* stylelint-disable docusaurus/copyright-header */
+@import "/src/css/variables.css";
+
+.features {
+  background:
+    linear-gradient(0deg, #9ba9cc, #9ba9cc),
+    #0D0D0D;
+  width: 100%;
+  padding: 20px 0 5px 0;
+  text-align: center;
+}
+
+.h3Custom {
+  font-family: Ubuntu, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, "sans-serif", Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol !;
+  font-size: 24px;
+  color: #F8F8F8;
+  font-weight: 400;
+  border-bottom: 2px solid #D26745;
+  padding-bottom: 4px;
+  margin-bottom: 40px;
+  display: inline-block;
+}
+
+.pCustom {
+  font-size: 20px;
+  color: #F8F8F8;
+  margin-bottom: 3rem;
+  font-weight: 400;
+  line-height: 30px;
+}
+
+.featureSvg {
+  padding: 25px;
+  height: 40%;
+  width: 40%;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.demoButton {
+  width: 268px;
+  height: 39px;
+  padding: 6px 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: inline-block;
+  color: #D26745;
+  text-decoration: none;
+  border-radius: 4px 0px 0px 0px;
+  border: 2px solid #D26745;
+  opacity: 1;
+  gap: 10px;
+  transition: background-color 0.3s ease;
+  font-weight: 600;
+}
+
+/*
+.features {
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+.featureSvg {
+  height: 200px;
+  width: 200px;
+}
+*/

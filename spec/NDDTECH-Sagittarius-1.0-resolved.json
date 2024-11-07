@@ -1,0 +1,2393 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Projeto de integração NDD",
+    "description": "Projeto de integração",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://blog.acme.com"
+    }
+  ],
+  "paths": {
+    "/viagem": {
+      "post": {
+        "tags": [
+          "Gerenciamento de viagem"
+        ],
+        "summary": "Cria uma nova viagem",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Viagem"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Viagem criada com sucesso"
+          },
+          "400": {
+            "description": "Erro na requisição. Verifique os dados enviados."
+          },
+          "401": {
+            "description": "Não autorizado. É necessário autenticar para acessar este recurso."
+          },
+          "500": {
+            "description": "Erro interno no servidor. Por favor, tente novamente mais tarde, se o erro persistir, contate o suporte."
+          }
+        }
+      }
+    },
+    "/viagem/{id}": {
+      "delete": {
+        "tags": [
+          "Gerenciamento de viagem"
+        ],
+        "summary": "Cancelamento de uma viagem",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Identificador da viagem",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Viagem cancelada com sucesso"
+          },
+          "400": {
+            "description": "Erro na requisição. Verifique os dados enviados."
+          },
+          "401": {
+            "description": "Não autorizado. É necessário autenticar para acessar este recurso."
+          },
+          "500": {
+            "description": "Erro interno no servidor. Por favor, tente novamente mais tarde, se o erro persistir, contate o suporte."
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Gerenciamento de viagem"
+        ],
+        "summary": "Atualização parcial dos dados de uma viagem",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Identificador da viagem",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Viagem"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Viagem atualizada com sucesso"
+          },
+          "400": {
+            "description": "Erro na requisição. Verifique os dados enviados."
+          },
+          "401": {
+            "description": "Não autorizado. É necessário autenticar para acessar este recurso."
+          },
+          "500": {
+            "description": "Erro interno no servidor. Por favor, tente novamente mais tarde, se o erro persistir, contate o suporte."
+          }
+        }
+      }
+    },
+    "/filial": {
+      "get": {
+        "tags": [
+          "Gerenciamento de filiais"
+        ],
+        "summary": "Listagem de filiais",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de filiais",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Filial"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado. É necessário autenticar para acessar este recurso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno no servidor. Por favor, tente novamente mais tarde, se o erro persistir, contate o suporte.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_500"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Gerenciamento de filiais"
+        ],
+        "summary": "Criação de uma nova filial",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Filial"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Filial criada com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_201"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Erro na requisição. Verifique os dados enviados.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado. É necessário autenticar para acessar este recurso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno no servidor. Por favor, tente novamente mais tarde, se o erro persistir, contate o suporte.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/filial/{identificador}": {
+      "get": {
+        "tags": [
+          "Gerenciamento de filiais"
+        ],
+        "summary": "Busca de filial por identificador",
+        "parameters": [
+          {
+            "name": "identificador",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Filial encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Filial"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado. É necessário autenticar para acessar este recurso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno no servidor. Por favor, tente novamente mais tarde, se o erro persistir, contate o suporte.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_500"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Gerenciamento de filiais"
+        ],
+        "summary": "Remoção de uma filial",
+        "parameters": [
+          {
+            "name": "identificador",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Filial removida com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado. É necessário autenticar para acessar este recurso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno no servidor. Por favor, tente novamente mais tarde, se o erro persistir, contate o suporte.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_500"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Gerenciamento de filiais"
+        ],
+        "summary": "Edição parcial de uma filial",
+        "parameters": [
+          {
+            "name": "identificador",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Filial"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Filial atualizada com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_1"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado. É necessário autenticar para acessar este recurso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno no servidor. Por favor, tente novamente mais tarde, se o erro persistir, contate o suporte.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/veiculo": {
+      "get": {
+        "tags": [
+          "Gerenciamento de veículos"
+        ],
+        "summary": "Listagem de veículos",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "description": "Query string for filtering",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de veículos",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Veiculo"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado. É necessário autenticar para acessar este recurso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno no servidor. Por favor, tente novamente mais tarde, se o erro persistir, contate o suporte.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_500"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Gerenciamento de veículos"
+        ],
+        "summary": "Criação de um novo veículo",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Veiculo"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Veículo criado com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_201_1"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Erro na requisição. Verifique os dados enviados.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado. É necessário autenticar para acessar este recurso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno no servidor. Por favor, tente novamente mais tarde, se o erro persistir, contate o suporte.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/veiculo/{identificador}": {
+      "get": {
+        "tags": [
+          "Gerenciamento de veículos"
+        ],
+        "summary": "Busca de veículo por identificador",
+        "parameters": [
+          {
+            "name": "identificador",
+            "in": "path",
+            "description": "Identificador do veículo",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Veículo encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Veiculo"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado. É necessário autenticar para acessar este recurso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno no servidor. Por favor, tente novamente mais tarde, se o erro persistir, contate o suporte.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_500"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Gerenciamento de veículos"
+        ],
+        "summary": "Remoção de um veículo",
+        "parameters": [
+          {
+            "name": "identificador",
+            "in": "path",
+            "description": "Identificador do veículo",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Veículo removido com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_2"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado. É necessário autenticar para acessar este recurso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno no servidor. Por favor, tente novamente mais tarde, se o erro persistir, contate o suporte.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_500"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Gerenciamento de veículos"
+        ],
+        "summary": "Edição parcial de um veículo",
+        "parameters": [
+          {
+            "name": "identificador",
+            "in": "path",
+            "description": "Identificador do veículo",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Veiculo"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Veículo atualizado com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_3"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado. É necessário autenticar para acessar este recurso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno no servidor. Por favor, tente novamente mais tarde, se o erro persistir, contate o suporte.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/proprietario": {
+      "get": {
+        "tags": [
+          "Gerenciamento de proprietários de Veículos"
+        ],
+        "summary": "Listagem de proprietários de veículos",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de proprietários de veículos",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Proprietario"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado. É necessário autenticar para acessar este recurso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno no servidor. Por favor, tente novamente mais tarde, se o erro persistir, contate o suporte.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_500"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Gerenciamento de proprietários de Veículos"
+        ],
+        "summary": "Criação de um novo proprietário de veículo",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Proprietario"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Proprietário criado com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_201_2"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Erro na requisição. Verifique os dados enviados.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado. É necessário autenticar para acessar este recurso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno no servidor. Por favor, tente novamente mais tarde, se o erro persistir, contate o suporte.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/proprietario/{identificador}": {
+      "get": {
+        "tags": [
+          "Gerenciamento de proprietários de Veículos"
+        ],
+        "summary": "Busca de proprietário de veículo por identificador",
+        "parameters": [
+          {
+            "name": "identificador",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Proprietário encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Proprietario"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado. É necessário autenticar para acessar este recurso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno no servidor. Por favor, tente novamente mais tarde, se o erro persistir, contate o suporte.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_500"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Gerenciamento de proprietários de Veículos"
+        ],
+        "summary": "Remoção de um proprietário de veículo",
+        "parameters": [
+          {
+            "name": "identificador",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Proprietário removido com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_4"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado. É necessário autenticar para acessar este recurso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno no servidor. Por favor, tente novamente mais tarde, se o erro persistir, contate o suporte.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_500"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Gerenciamento de proprietários de Veículos"
+        ],
+        "summary": "Edição parcial de um proprietário de veículo",
+        "parameters": [
+          {
+            "name": "identificador",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Proprietario"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Proprietário atualizado com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_5"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado. É necessário autenticar para acessar este recurso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno no servidor. Por favor, tente novamente mais tarde, se o erro persistir, contate o suporte.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/condutor": {
+      "get": {
+        "tags": [
+          "Gerenciamento de condutores"
+        ],
+        "summary": "Listagem de condutores",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de condutores",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Condutor"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado. É necessário autenticar para acessar este recurso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno no servidor. Por favor, tente novamente mais tarde, se o erro persistir, contate o suporte.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_500"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Gerenciamento de condutores"
+        ],
+        "summary": "Criação de um novo condutor",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Condutor"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Condutor criado com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_201_3"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Erro na requisição. Verifique os dados enviados.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado. É necessário autenticar para acessar este recurso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno no servidor. Por favor, tente novamente mais tarde, se o erro persistir, contate o suporte.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/condutor/{identificador}": {
+      "get": {
+        "tags": [
+          "Gerenciamento de condutores"
+        ],
+        "summary": "Busca de condutor por identificador",
+        "parameters": [
+          {
+            "name": "identificador",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Condutor encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Condutor"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado. É necessário autenticar para acessar este recurso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno no servidor. Por favor, tente novamente mais tarde, se o erro persistir, contate o suporte.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_500"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Gerenciamento de condutores"
+        ],
+        "summary": "Remoção de um condutor",
+        "parameters": [
+          {
+            "name": "identificador",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Condutor removido com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_6"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado. É necessário autenticar para acessar este recurso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno no servidor. Por favor, tente novamente mais tarde, se o erro persistir, contate o suporte.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_500"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Gerenciamento de condutores"
+        ],
+        "summary": "Edição parcial de um condutor",
+        "parameters": [
+          {
+            "name": "identificador",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Condutor"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Condutor atualizado com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_7"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado. É necessário autenticar para acessar este recurso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno no servidor. Por favor, tente novamente mais tarde, se o erro persistir, contate o suporte.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/prestador": {
+      "get": {
+        "tags": [
+          "Gerenciamento de prestadores de serviço"
+        ],
+        "summary": "Listagem de prestadores de serviço",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de prestadores de serviço",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Prestador"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado. É necessário autenticar para acessar este recurso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno no servidor. Por favor, tente novamente mais tarde, se o erro persistir, contate o suporte.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_500"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Gerenciamento de prestadores de serviço"
+        ],
+        "summary": "Criação de um novo prestador de serviço",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Prestador"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "prestador de serviço criado com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_201_4"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Erro na requisição. Verifique os dados enviados.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado. É necessário autenticar para acessar este recurso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno no servidor. Por favor, tente novamente mais tarde, se o erro persistir, contate o suporte.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/prestador/{identificador}": {
+      "get": {
+        "tags": [
+          "Gerenciamento de prestadores de serviço"
+        ],
+        "summary": "Busca de prestador de serviço por identificador",
+        "parameters": [
+          {
+            "name": "identificador",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Prestador de serviço encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Prestador"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado. É necessário autenticar para acessar este recurso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno no servidor. Por favor, tente novamente mais tarde, se o erro persistir, contate o suporte.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_500"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Gerenciamento de prestadores de serviço"
+        ],
+        "summary": "Remoção de um prestador de serviço",
+        "parameters": [
+          {
+            "name": "identificador",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Prestador de serviço removido com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_8"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado. É necessário autenticar para acessar este recurso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno no servidor. Por favor, tente novamente mais tarde, se o erro persistir, contate o suporte.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_500"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Gerenciamento de prestadores de serviço"
+        ],
+        "summary": "Edição parcial de um prestador de serviço",
+        "parameters": [
+          {
+            "name": "identificador",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Prestador"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Prestador de serviço atualizado com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_9"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Não autorizado. É necessário autenticar para acessar este recurso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno no servidor. Por favor, tente novamente mais tarde, se o erro persistir, contate o suporte.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_500"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Veiculo": {
+        "type": "object",
+        "properties": {
+          "Identificador": {
+            "type": "string",
+            "description": "Identificador do veículo. Caso deixe em branco geraremos um GUID único"
+          },
+          "Placa": {
+            "type": "string",
+            "description": "Placa do veículo"
+          },
+          "Modelo": {
+            "type": "string",
+            "description": "Modelo do veículo"
+          },
+          "TipoVeiculo": {
+            "type": "integer",
+            "description": "Especifica se o veículo é de tração ou reboque. Valores possíveis: `1` - Tração , `2` - Reboque"
+          },
+          "TipoRodado": {
+            "type": "integer",
+            "description": "Tipo da unidade de força ou rodado. Para reboque não é utilizado. Valores possíveis: `1` - Truck, `2` - Toco, `3` - Cavalo Mecânico, `4` - VAN, `5` - Utilitário, `6` - Outros"
+          },
+          "TipoCarroceria": {
+            "type": "integer",
+            "description": "Tipo do reboque ou carroceria. Valores possíveis: `0` - Não aplicável, `1` - Aberta, `2` - Fechada/Baú, `3` - Granelera, `4` - Porta Container, `5` - Sider"
+          },
+          "Categoria": {
+            "type": "integer",
+            "description": "Categoria do veículo, utilizado no calculo de pedágio:\n- `0` - Isento (não calcula pedágio)\n- `1` - Motocicletas, motonetas e bicicletas a motor\n- `2` - Automóvel, caminhoneta e furgão (dois eixos simples)\n- `3` - Automóvel, caminhoneta com semirreboque (três eixos simples)\n- `4` - Automóvel, caminhoneta com reboque (quatro eixos simples)\n- `5` - Ônibus (dois eixos duplos)\n- `6` - Ônibus com reboque (três eixos duplos)\n- `7` - Caminhão leve, furgão e cavalo mecânico (dois eixos duplos)\n- `8` - Caminhão, caminhão trator e cavalo mecânico com semirreboque (três eixos duplos)\n- `9` - Caminhão com reboque e cavalo mecânico com semirreboque (quatro eixos duplos)\n- `10` - Caminhão com reboque e cavalo mecânico com semirreboque (cinco eixos duplos)\n- `11` - Caminhão com reboque e cavalo mecânico com semirreboque (seis eixos duplos)\n- `12` - Caminhão com reboque e cavalo mecânico com semirreboque (sete eixos duplos)\n- `13` - Caminhão com reboque e cavalo mecânico com semirreboque (oito eixos duplos)\n- `14` - Caminhão com reboque e cavalo mecânico com semirreboque (nove eixos duplos)\n- `15` - Caminhão com reboque e cavalo mecânico com semirreboque (dez eixos)\n- `16` - Caminhão com reboque e cavalo mecânico com semirreboque (acima de dez eixos)\n"
+          },
+          "Tara": {
+            "type": "number",
+            "description": "Peso do veículo vazio, obrigatório somente quando há a emissão de MDF-e"
+          },
+          "Capacidade": {
+            "type": "number",
+            "description": "Capacidade em KG. Obrigatório somente para reboque."
+          },
+          "RNTRC": {
+            "type": "string",
+            "description": "Registro Nacional de Transportadores Rodoviários de Cargas do veículo."
+          },
+          "OperadoraTagPedagio": {
+            "type": "number",
+            "description": "Fornecedor de vale pedágio, obrigatório somente quando a forma de pagamento é diferente de 1 - sem movimentação, 2 - Sem Parar, 3 - ConnectCar, 4 - Veloe"
+          },
+          "NumeroTagPedagio": {
+            "type": "string",
+            "description": "Numero da TAG de operação de vale pedágio, deve ser informado somente quando a tag for nova"
+          },
+          "ProprietarioVeiculo": {
+            "$ref": "#/components/schemas/Veiculo_ProprietarioVeiculo"
+          },
+          "Condutores": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Veiculo_Condutores"
+            }
+          }
+        }
+      },
+      "Filial": {
+        "required": [
+          "Bairro",
+          "CEP",
+          "CNPJ",
+          "IBGE",
+          "Identificador",
+          "Logradouro",
+          "Numero",
+          "RazaoSocial",
+          "UF"
+        ],
+        "type": "object",
+        "properties": {
+          "Identificador": {
+            "type": "string",
+            "description": "Identificador da filial. Caso deixe em branco geraremos um GUID único"
+          },
+          "CNPJ": {
+            "type": "string",
+            "description": "CNPJ da filial, sem pontuação"
+          },
+          "NomeFantasia": {
+            "type": "string",
+            "description": "Nome da filial"
+          },
+          "RazaoSocial": {
+            "type": "string",
+            "description": "Razão Social da filial"
+          },
+          "Logradouro": {
+            "type": "string",
+            "description": "Logradouro do endereço da filial"
+          },
+          "Numero": {
+            "type": "string",
+            "description": "Número do endereço da filial"
+          },
+          "Bairro": {
+            "type": "string",
+            "description": "Bairro do endereço da filial"
+          },
+          "IBGE": {
+            "type": "string",
+            "description": "Código IBGE da cidade da filial"
+          },
+          "UF": {
+            "type": "string",
+            "description": "UF do estado da filial"
+          },
+          "CEP": {
+            "type": "string",
+            "description": "CEP do endereço da filial, sem pontuação"
+          },
+          "IE": {
+            "type": "string",
+            "description": "Inscrição estadual da filial"
+          },
+          "Matriz": {
+            "type": "boolean",
+            "description": "Identifica se a filial é uma Matriz"
+          }
+        }
+      },
+      "Proprietario": {
+        "required": [
+          "CEP",
+          "CNPJCPF",
+          "IBGE",
+          "IE",
+          "Identificador",
+          "Logradouro",
+          "Nome",
+          "Numero",
+          "RNTRC",
+          "Tipo",
+          "UF"
+        ],
+        "type": "object",
+        "properties": {
+          "Identificador": {
+            "type": "string",
+            "description": "Identificador do proprietário do veículo. Caso deixe em branco geraremos um GUID único"
+          },
+          "CNPJCPF": {
+            "type": "string",
+            "description": "CNPJ ou CPF do proprietário, sem pontuação"
+          },
+          "Nome": {
+            "type": "string",
+            "description": "Nome ou Razão Social do proprietário"
+          },
+          "RNTRC": {
+            "type": "string",
+            "description": "RNTRC do proprietário"
+          },
+          "IE": {
+            "type": "string",
+            "description": "Inscrição Estadual do proprietário (obrigatório se juridica)"
+          },
+          "Logradouro": {
+            "type": "string",
+            "description": "Logradouro do endereço do proprietário"
+          },
+          "Numero": {
+            "type": "string",
+            "description": "Número do endereço do proprietário"
+          },
+          "UF": {
+            "type": "string",
+            "description": "UF do estado do proprietário"
+          },
+          "CEP": {
+            "type": "string",
+            "description": "CEP do endereço do proprietário, sem pontuação"
+          },
+          "IBGE": {
+            "type": "string",
+            "description": "Código IBGE da cidade do Proprietário"
+          }
+        }
+      },
+      "Condutor": {
+        "required": [
+          "CPF",
+          "Identificador",
+          "Nome",
+          "RNTRC"
+        ],
+        "type": "object",
+        "properties": {
+          "Identificador": {
+            "type": "string",
+            "description": "Identificador do condutor. Caso deixe em branco geraremos um GUID único"
+          },
+          "Nome": {
+            "type": "string",
+            "description": "Nome do condutor"
+          },
+          "CPF": {
+            "type": "string",
+            "description": "CPF do condutor, sem pontuação"
+          },
+          "RNTRC": {
+            "type": "string",
+            "description": "RNTRC do condutor"
+          }
+        }
+      },
+      "Prestador": {
+        "required": [
+          "CEP",
+          "CNPJCPF",
+          "IBGE",
+          "IE",
+          "Identificador",
+          "Logradouro",
+          "Nome",
+          "Numero",
+          "RNTRC",
+          "Tipo",
+          "UF"
+        ],
+        "type": "object",
+        "properties": {
+          "Identificador": {
+            "type": "string",
+            "description": "Identificador do proprietário do veículo. Caso deixe em branco geraremos um GUID único"
+          },
+          "CNPJCPF": {
+            "type": "string",
+            "description": "CNPJ ou CPF do proprietário, sem pontuação"
+          },
+          "Nome": {
+            "type": "string",
+            "description": "Nome ou Razão Social do proprietário"
+          },
+          "RNTRC": {
+            "type": "string",
+            "description": "RNTRC do proprietário"
+          },
+          "IE": {
+            "type": "string",
+            "description": "Inscrição Estadual do proprietário"
+          },
+          "Logradouro": {
+            "type": "string",
+            "description": "Logradouro do endereço do proprietário"
+          },
+          "Numero": {
+            "type": "string",
+            "description": "Número do endereço do proprietário"
+          },
+          "UF": {
+            "type": "string",
+            "description": "UF do estado do proprietário"
+          },
+          "CEP": {
+            "type": "string",
+            "description": "CEP do endereço do proprietário, sem pontuação"
+          },
+          "IBGE": {
+            "type": "string",
+            "description": "Código IBGE da cidade do Proprietário"
+          },
+          "FormaRecebimentoFrete": {
+            "type": "string",
+            "description": "Forma de recebimento preferencial do Frete, `1` - Sem movimentação, `2` - TED, `3` - PIX,  `4` - NDD Cargo"
+          },
+          "FormaRecebimentoPedagio": {
+            "type": "string",
+            "description": "Forma de recebimento preferencial do Pedágio, `1` - Sem movimentação, `2` - TAG"
+          },
+          "DadosBancarios": {
+            "$ref": "#/components/schemas/Prestador_DadosBancarios"
+          }
+        }
+      },
+      "VeiculoReboque": {
+        "type": "object",
+        "properties": {
+          "Identificador": {
+            "type": "string",
+            "description": "Identificador do veículo. Caso deixe em branco geraremos um GUID único"
+          },
+          "Placa": {
+            "type": "string",
+            "description": "Placa do veículo"
+          },
+          "Modelo": {
+            "type": "string",
+            "description": "Modelo do veículo"
+          },
+          "TipoCarroceria": {
+            "type": "integer",
+            "description": "Tipo do reboque ou carroceria. Valores possíveis: `0` - Não aplicável, `1` - Aberta, `2` - Fechada/Baú, `3` - Granelera, `4` - Porta Container, `5` - Sider"
+          },
+          "Tara": {
+            "type": "number",
+            "description": "Peso do veículo vazio, obrigatório somente quando há a emissão de MDF-e"
+          },
+          "Capacidade": {
+            "type": "number",
+            "description": "Capacidade em KG. Obrigatório somente para reboque."
+          },
+          "RNTRC": {
+            "type": "string",
+            "description": "Registro Nacional de Transportadores Rodoviários de Cargas do veículo."
+          }
+        }
+      },
+      "VeiculoTracao": {
+        "type": "object",
+        "properties": {
+          "Identificador": {
+            "type": "string",
+            "description": "Identificador do veículo. Caso deixe em branco geraremos um GUID único"
+          },
+          "Placa": {
+            "type": "string",
+            "description": "Placa do veículo"
+          },
+          "Modelo": {
+            "type": "string",
+            "description": "Modelo do veículo"
+          },
+          "TipoRodado": {
+            "type": "integer",
+            "description": "Tipo da unidade de força ou rodado. Para reboque não é utilizado. Valores possíveis: `1` - Truck, `2` - Toco, `3` - Cavalo Mecânico, `4` - VAN, `5` - Utilitário, `6` - Outros"
+          },
+          "TipoCarroceria": {
+            "type": "integer",
+            "description": "Tipo do reboque ou carroceria. Valores possíveis: `0` - Não aplicável, `1` - Aberta, `2` - Fechada/Baú, `3` - Granelera, `4` - Porta Container, `5` - Sider"
+          },
+          "Categoria": {
+            "type": "integer",
+            "description": "Categoria do veículo, utilizado no calculo de pedágio:\n- `0` - Isento (não calcula pedágio)\n- `1` - Motocicletas, motonetas e bicicletas a motor\n- `2` - Automóvel, caminhoneta e furgão (dois eixos simples)\n- `3` - Automóvel, caminhoneta com semirreboque (três eixos simples)\n- `4` - Automóvel, caminhoneta com reboque (quatro eixos simples)\n- `5` - Ônibus (dois eixos duplos)\n- `6` - Ônibus com reboque (três eixos duplos)\n- `7` - Caminhão leve, furgão e cavalo mecânico (dois eixos duplos)\n- `8` - Caminhão, caminhão trator e cavalo mecânico com semirreboque (três eixos duplos)\n- `9` - Caminhão com reboque e cavalo mecânico com semirreboque (quatro eixos duplos)\n- `10` - Caminhão com reboque e cavalo mecânico com semirreboque (cinco eixos duplos)\n- `11` - Caminhão com reboque e cavalo mecânico com semirreboque (seis eixos duplos)\n- `12` - Caminhão com reboque e cavalo mecânico com semirreboque (sete eixos duplos)\n- `13` - Caminhão com reboque e cavalo mecânico com semirreboque (oito eixos duplos)\n- `14` - Caminhão com reboque e cavalo mecânico com semirreboque (nove eixos duplos)\n- `15` - Caminhão com reboque e cavalo mecânico com semirreboque (dez eixos)\n- `16` - Caminhão com reboque e cavalo mecânico com semirreboque (acima de dez eixos)\n"
+          },
+          "Tara": {
+            "type": "number",
+            "description": "Peso do veículo vazio, obrigatório somente quando há a emissão de MDF-e"
+          },
+          "Capacidade": {
+            "type": "number",
+            "description": "Capacidade em KG. Obrigatório somente para reboque."
+          },
+          "RNTRC": {
+            "type": "string",
+            "description": "Registro Nacional de Transportadores Rodoviários de Cargas do veículo."
+          },
+          "OperadoraTagPedagio": {
+            "type": "number",
+            "description": "Fornecedor de vale pedágio, obrigatório somente quando a forma de pagamento é diferente de 1 - sem movimentação, 2 - Sem Parar, 3 - ConnectCar, 4 - Veloe"
+          },
+          "NumeroTagPedagio": {
+            "type": "string",
+            "description": "Numero da TAG de operação de vale pedágio, deve ser informado somente quando a tag for nova"
+          },
+          "ProprietarioVeiculo": {
+            "$ref": "#/components/schemas/Veiculo_ProprietarioVeiculo"
+          },
+          "Condutores": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Veiculo_Condutores"
+            }
+          }
+        }
+      },
+      "Viagem": {
+        "type": "object",
+        "properties": {
+          "Identificador": {
+            "type": "string",
+            "description": "Identificador da viagem"
+          },
+          "Filial": {
+            "$ref": "#/components/schemas/Viagem_Filial"
+          },
+          "Prestador": {
+            "$ref": "#/components/schemas/Viagem_Prestador"
+          },
+          "VeiculoTracao": {
+            "$ref": "#/components/schemas/Viagem_VeiculoTracao"
+          },
+          "VeiculosReboque": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Viagem_VeiculosReboque"
+            }
+          },
+          "Roteirizacao": {
+            "$ref": "#/components/schemas/Roteirizacao"
+          },
+          "DocumentoViagem": {
+            "$ref": "#/components/schemas/DocumentoViagem"
+          },
+          "FormaPagamentoFrete": {
+            "type": "string",
+            "description": "Forma de pagamento do Frete, `1` - Sem movimentação, `2` - TED, `3` - PIX,  `4` - NDD Cargo"
+          },
+          "FormaPagamentoPedagio": {
+            "type": "string",
+            "description": "Forma de pagamento do Pedágio, `1` - Sem movimentação, `2` - TAG"
+          },
+          "CalcularPedagio": {
+            "type": "boolean",
+            "description": "Indica se deve calcular pedágio"
+          },
+          "PagarPedagio": {
+            "type": "boolean",
+            "description": "Indica se deve pagar pedágio"
+          },
+          "ValorPedagio": {
+            "type": "number",
+            "description": "Valor do pedágio",
+            "format": "float"
+          },
+          "ValorTotal": {
+            "type": "number",
+            "description": "Valor total do serviço prestado",
+            "format": "float"
+          },
+          "InfoComplementares": {
+            "type": "string",
+            "description": "Informações complementares"
+          }
+        }
+      },
+      "Roteirizacao": {
+        "type": "object",
+        "properties": {
+          "Paradas": {
+            "type": "array",
+            "description": "Lista de paradas na roteirização",
+            "items": {
+              "$ref": "#/components/schemas/Parada"
+            }
+          },
+          "RotaFixa": {
+            "type": "string",
+            "description": "Nome da rota fixa"
+          },
+          "LocalOrigem": {
+            "type": "string",
+            "description": "Identificador do local de origem da viagem"
+          },
+          "DefinicaoRota": {
+            "type": "number",
+            "description": "Regra de roterização: `0` - Eficiente, `1` - Curta, `2` - Evitar pedágio"
+          },
+          "CalcularRetorno": {
+            "type": "boolean",
+            "description": "Indica se a viagem de retorno deve ser considerada no roteriazador"
+          }
+        }
+      },
+      "Parada": {
+        "type": "object",
+        "properties": {
+          "Sequencia": {
+            "type": "integer",
+            "description": "Sequencia de pontos de parada da viagem, deve seguir uma ordenação iniciando do numero 1"
+          },
+          "Local": {
+            "$ref": "#/components/schemas/Local"
+          },
+          "Tipo": {
+            "type": "number",
+            "description": "Tipo da rota: `1` - Coleta, `2` - Entrega"
+          }
+        }
+      },
+      "DocumentoViagem": {
+        "type": "object",
+        "properties": {
+          "TipoDocumento": {
+            "type": "string",
+            "description": "Tipo do documento"
+          },
+          "ChaveNumero": {
+            "type": "string",
+            "description": "Chave ou número do documento"
+          },
+          "Tomador": {
+            "$ref": "#/components/schemas/Viagem_Filial"
+          },
+          "LocalRetirada": {
+            "type": "string",
+            "description": "Identificador do local de retirada da carga"
+          },
+          "LocalEntrega": {
+            "type": "string",
+            "description": "Identificador do local de entrega da carga"
+          },
+          "PesoLiquido": {
+            "type": "number",
+            "description": "Peso líquido da carga",
+            "format": "float"
+          },
+          "PesoBruto": {
+            "type": "number",
+            "description": "Peso bruto da carga",
+            "format": "float"
+          },
+          "Volume": {
+            "type": "number",
+            "description": "Volume em M³ da carga",
+            "format": "float"
+          },
+          "PesoCubado": {
+            "type": "number",
+            "description": "Peso cubado da carga",
+            "format": "float"
+          },
+          "ValorMercadoria": {
+            "type": "number",
+            "description": "Valor da mercadoria transportada",
+            "format": "float"
+          },
+          "ValorSeguro": {
+            "type": "number",
+            "description": "Valor para seguro da carga",
+            "format": "float"
+          },
+          "NumeroPedido": {
+            "type": "number",
+            "description": "Numero do pedido ou PO"
+          },
+          "ComponentesFrete": {
+            "type": "array",
+            "description": "Componentes de frete e seus valores",
+            "items": {
+              "$ref": "#/components/schemas/ComponenteFrete"
+            }
+          },
+          "DataHoraRetirada": {
+            "type": "string",
+            "description": "Data e hora da retirada agendada",
+            "format": "date-time"
+          },
+          "DataHoraEntrega": {
+            "type": "string",
+            "description": "Data e hora da entrega agendada",
+            "format": "date-time"
+          }
+        }
+      },
+      "Local": {
+        "type": "object",
+        "properties": {
+          "Identificador": {
+            "type": "string",
+            "description": "Identificador de vinculo do local com as partes da integração"
+          },
+          "CPFCNPJ": {
+            "type": "string",
+            "description": "CPF ou CNPJ do local"
+          },
+          "Nome": {
+            "type": "string",
+            "description": "Nome do local"
+          },
+          "Logradouro": {
+            "type": "string",
+            "description": "Logradouro do local"
+          },
+          "Numero": {
+            "type": "string",
+            "description": "Número do local"
+          },
+          "Bairro": {
+            "type": "string",
+            "description": "Bairro do local"
+          },
+          "CEP": {
+            "type": "string",
+            "description": "CEP do local"
+          },
+          "Municipio": {
+            "type": "string",
+            "description": "Município do local"
+          },
+          "UF": {
+            "type": "string",
+            "description": "Unidade Federativa"
+          },
+          "IBGE": {
+            "type": "string",
+            "description": "Código IBGE do município"
+          },
+          "Latitude": {
+            "type": "number",
+            "description": "Latitude do local",
+            "format": "float"
+          },
+          "Longitude": {
+            "type": "number",
+            "description": "Longitude do local",
+            "format": "float"
+          }
+        }
+      },
+      "ComponenteFrete": {
+        "type": "object",
+        "properties": {
+          "Descricao": {
+            "type": "string",
+            "description": "Descrição do componente do frete"
+          },
+          "Valor": {
+            "type": "number",
+            "description": "Valor do componente do frete",
+            "format": "float"
+          },
+          "ComImposto": {
+            "type": "boolean",
+            "description": "Indica se o valor inclui imposto"
+          }
+        }
+      },
+      "inline_response_401": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Não autorizado. É necessário autenticar para acessar este recurso."
+          }
+        }
+      },
+      "inline_response_500": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Erro interno no servidor. Por favor, tente novamente mais tarde, se o erro persistir, contate o suporte."
+          }
+        }
+      },
+      "inline_response_201": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Filial criada com sucesso"
+          }
+        }
+      },
+      "inline_response_400": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Erro na requisição. Verifique os dados enviados."
+          }
+        }
+      },
+      "inline_response_200": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Filial removida com sucesso"
+          }
+        }
+      },
+      "inline_response_200_1": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Filial atualizada com sucesso"
+          }
+        }
+      },
+      "inline_response_201_1": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Veículo criado com sucesso"
+          }
+        }
+      },
+      "inline_response_200_2": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Veículo removido com sucesso"
+          }
+        }
+      },
+      "inline_response_200_3": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Veículo atualizado com sucesso"
+          }
+        }
+      },
+      "inline_response_201_2": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Proprietário criado com sucesso"
+          }
+        }
+      },
+      "inline_response_200_4": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Proprietário removido com sucesso"
+          }
+        }
+      },
+      "inline_response_200_5": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Proprietário atualizado com sucesso"
+          }
+        }
+      },
+      "inline_response_201_3": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Condutor criado com sucesso"
+          }
+        }
+      },
+      "inline_response_200_6": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Condutor removido com sucesso"
+          }
+        }
+      },
+      "inline_response_200_7": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Condutor atualizado com sucesso"
+          }
+        }
+      },
+      "inline_response_201_4": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "prestador de serviço criado com sucesso"
+          }
+        }
+      },
+      "inline_response_200_8": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Prestador de serviço removido com sucesso"
+          }
+        }
+      },
+      "inline_response_200_9": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Prestador de serviço atualizado com sucesso"
+          }
+        }
+      },
+      "Veiculo_ProprietarioVeiculo": {
+        "type": "object",
+        "properties": {
+          "Identificador": {
+            "type": "string",
+            "description": "Identificador do proprietário do veiculo. Informar somente para utilizar um proprietário do veiculo já previamente cadastrado."
+          },
+          "Dados": {
+            "$ref": "#/components/schemas/Proprietario"
+          }
+        }
+      },
+      "Veiculo_Condutores": {
+        "properties": {
+          "Identificador": {
+            "type": "string",
+            "description": "Identificador do condutor. Informar somente para utilizar um condutor já previamente cadastrado."
+          },
+          "Dados": {
+            "$ref": "#/components/schemas/Condutor"
+          }
+        }
+      },
+      "Prestador_DadosBancarios": {
+        "type": "object",
+        "properties": {
+          "ChavePix": {
+            "type": "string",
+            "description": "Chave Pix do beneficiário"
+          },
+          "Agencia": {
+            "type": "string",
+            "description": "Agência do beneficiário. Enviar somente quando a forma de pagamento for Pix por dados bancários ou TED."
+          },
+          "Conta": {
+            "type": "string",
+            "description": "Conta do beneficiário. Enviar somente quando a forma de pagamento for Pix por dados bancários ou TED."
+          },
+          "DigVerificador": {
+            "type": "string",
+            "description": "Dígito verificador da conta do beneficiário. Enviar somente quando a forma de pagamento for Pix por dados bancários ou TED."
+          },
+          "CodigoBanco": {
+            "type": "string",
+            "description": "Código do banco do beneficiário. Enviar somente quando a forma de pagamento for Pix por dados bancários ou TED."
+          },
+          "CPFCNPJBeneficiario": {
+            "type": "string",
+            "description": "CPF ou CNPJ do beneficiário"
+          }
+        }
+      },
+      "Viagem_Filial": {
+        "type": "object",
+        "properties": {
+          "Identificador": {
+            "type": "string",
+            "description": "Identificador da filial cadastrada. Informar somente para utilizar uma filial já previamente cadastrado."
+          },
+          "Dados": {
+            "$ref": "#/components/schemas/Filial"
+          }
+        }
+      },
+      "Viagem_Prestador": {
+        "type": "object",
+        "properties": {
+          "Identificador": {
+            "type": "string",
+            "description": "Identificador das informações do prestador de serviço. Informar somente para utilizar um prestador já previamente cadastrado."
+          },
+          "Dados": {
+            "$ref": "#/components/schemas/Prestador"
+          }
+        },
+        "description": "Informações do prestador de serviço da carga"
+      },
+      "Viagem_VeiculoTracao": {
+        "type": "object",
+        "properties": {
+          "Identificador": {
+            "type": "string",
+            "description": "Identificador do veículo de tração. Informar somente para utilizar um veículo já previamente cadastrado."
+          },
+          "Dados": {
+            "$ref": "#/components/schemas/VeiculoTracao"
+          }
+        }
+      },
+      "Viagem_VeiculosReboque": {
+        "properties": {
+          "Identificador": {
+            "type": "string",
+            "description": "Identificador do veículo de reboque. Informar somente para utilizar um veículo já previamente cadastrado."
+          },
+          "Dados": {
+            "$ref": "#/components/schemas/VeiculoReboque"
+          }
+        }
+      }
+    }
+  }
+}

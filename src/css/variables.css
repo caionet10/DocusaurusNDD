@@ -1,0 +1,63 @@
+:root{
+    /* CORES DE TEXTOS */
+    --ds-primary-text-color:     #000000;
+    --ds-secondary-text-color:   #393939;
+    --ds-interactive-text-color: #0044C5;
+    --ds-error-text-color:       #B50000;
+    --ds-disabled-text-color:    #B5B5B5;
+    --ds-destructive-text-color: #FFFFFF;
+
+    /* PALETA DESIGN SYSTEM */
+    --ds-light-blue-color: #4FE4FD;
+    --ds-dark-blue-color:  #269DD8;
+
+    /* PALETA SECUNDÁRIA */
+    --ds-color-blue120:    #1D92BF;
+    --ds-color-blue110:    #20A3D5;
+    --ds-color-blue100:    #24B5ED;
+
+    --ds-color-gray130:  #888888;
+    --ds-color-gray120:  #A8A8A8;
+    --ds-color-gray110:  #D8D8D8;
+    --ds-color-gray100:  #F0F0F0;
+
+    --ds-color-green100:    #009E7E;
+
+    --ds-color-yellow100:   #FED222;
+
+    --ds-color-red120:    #B60015;
+    --ds-color-red110:    #CB0017;
+    --ds-color-red100:    #E2001A;
+
+    /* ESPAÇAMENTOS - INSET */
+    --ds-spacing-xsmall:     4px;
+    --ds-spacing-small:      8px;
+    --ds-spacing-medium:     16px;
+    --ds-spacing-large:      32px;
+    --ds-spacing-xlarge:     48px;
+    --ds-spacing-xxlarge:    64px;
+
+    /* ESPAÇAMENTOS - SQUISH INSET */
+    --ds-spacing-squish-small:   4px 8px;
+    --ds-spacing-squish-medium:  8px 16px;
+    --ds-spacing-squish-large:   16px 32px;
+
+    /* TEXTOS */
+    --ds-text-size-32: 32px;
+    --ds-text-size-28: 28px;
+    --ds-text-size-26: 26px;
+    --ds-text-size-20: 20px;
+    --ds-text-size-18: 18px;
+    --ds-text-size-16: 16px;
+    --ds-text-size-14: 14px;
+
+    --ds-line-height-40: 40px;
+    --ds-line-height-32: 32px;
+    --ds-line-height-28: 28px;
+    --ds-line-height-20: 20px;
+    --ds-line-height-16: 16px;
+
+    --ds-font-regular: 400;
+    --ds-font-bold: 500;
+
+}
