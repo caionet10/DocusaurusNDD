@@ -19126,7 +19126,7 @@
             "$ref": "#/components/schemas/TollReceiptType"
           },
           "DadosBancarios": {
-            "$ref": "#/components/schemas/DadosBancarios"
+            "$ref": "#/components/schemas/BankDataCommand"
           }
         },
         "additionalProperties": false
@@ -19346,40 +19346,40 @@
         },
         "additionalProperties": false
       },
-      "BankDataViewModel": {
-        "title": "BankDataViewModel",
+      "BankDataCommand": {
+        "title": "BankDataCommand",
         "type": "object",
         "properties": {
-          "pixKey": {
+          "ChavePix": {
             "title": "String",
             "type": "string",
             "nullable": true
           },
-          "agency": {
+          "Agencia": {
             "title": "Nullable`1.UInt16",
             "type": "integer",
             "format": "int32",
             "nullable": true
           },
-          "accountNumber": {
-            "title": "Nullable`1.UInt32",
+          "Conta": {
+            "title": "Nullable`1.Int64",
             "type": "integer",
-            "format": "int32",
+            "format": "int64",
             "nullable": true
           },
-          "checkDigit": {
+          "DigVerificador": {
             "title": "Nullable`1.Byte",
             "type": "integer",
             "format": "int32",
             "nullable": true
           },
-          "bankCode": {
-            "title": "Nullable`1.Byte",
+          "CodigoBanco": {
+            "title": "Nullable`1.UInt16",
             "type": "integer",
             "format": "int32",
             "nullable": true
           },
-          "beneficiaryCpfCnpj": {
+          "CPFCNPJBeneficiario": {
             "title": "String",
             "type": "string",
             "nullable": true
@@ -19884,7 +19884,7 @@
             "$ref": "#/components/schemas/TollReceiptType"
           },
           "DadosBancarios": {
-            "$ref": "#/components/schemas/DadosBancarios"
+            "$ref": "#/components/schemas/BankDataCommand"
           }
         },
         "additionalProperties": false
@@ -20138,9 +20138,9 @@
             "nullable": true
           },
           "Conta": {
-            "title": "Nullable`1.Int64",
+            "title": "Nullable`1.UInt32",
             "type": "integer",
-            "format": "int64",
+            "format": "int32",
             "nullable": true
           },
           "DigVerificador": {
@@ -20150,7 +20150,7 @@
             "nullable": true
           },
           "CodigoBanco": {
-            "title": "Nullable`1.UInt16",
+            "title": "Nullable`1.Byte",
             "type": "integer",
             "format": "int32",
             "nullable": true
@@ -20295,336 +20295,331 @@
             "type": "string",
             "format": "date-time"
           },
-          "number": {
+          "Numero": {
             "title": "String",
             "type": "string",
             "nullable": true
           },
-          "series": {
+          "Serie": {
             "title": "String",
             "type": "string",
             "nullable": true
           },
-          "emissionDate": {
+          "DataEmissao": {
             "title": "Nullable`1.DateTime",
             "type": "string",
             "format": "date-time",
             "nullable": true
           },
-          "paymentScheduleDate": {
+          "DataAgendamentoPagamento": {
             "title": "DateTime",
             "type": "string",
             "format": "date-time"
           },
-          "paymentConfirmationDate": {
+          "DataConfirmacaoPagamento": {
             "title": "Nullable`1.DateTime",
             "type": "string",
             "format": "date-time",
             "nullable": true
           },
-          "travel": {
+          "Viagem": {
             "title": "String",
             "type": "string",
             "nullable": true
           },
-          "ciotNumber": {
+          "CIOT": {
             "title": "Nullable`1.Int64",
             "type": "integer",
             "format": "int64",
             "nullable": true
           },
-          "takerName": {
+          "NomeTomador": {
             "title": "String",
             "type": "string",
             "nullable": true
           },
-          "takerCnpj": {
+          "CNPJTomador": {
             "title": "String",
             "type": "string",
             "nullable": true
           },
-          "takerPublicPlace": {
+          "LogradouroTomador": {
             "title": "String",
             "type": "string",
             "nullable": true
           },
-          "takerNumber": {
+          "NumeroTomador": {
             "title": "String",
             "type": "string",
             "nullable": true
           },
-          "takerState": {
+          "UFTomador": {
             "title": "String",
             "type": "string",
             "nullable": true
           },
-          "takerCity": {
+          "CidadeTomador": {
             "title": "String",
             "type": "string",
             "nullable": true
           },
-          "takerNeighborhood": {
+          "BairroTomador": {
             "title": "String",
             "type": "string",
             "nullable": true
           },
-          "takerPostalCode": {
+          "CEPTomador": {
             "title": "Nullable`1.Int64",
             "type": "integer",
             "format": "int64",
             "nullable": true
           },
-          "takerCityCode": {
+          "IBGETomador": {
             "title": "Nullable`1.Int64",
             "type": "integer",
             "format": "int64",
             "nullable": true
           },
-          "providerName": {
+          "NomeTransportador": {
             "title": "String",
             "type": "string",
             "nullable": true
           },
-          "providerCnpj": {
+          "CNPJTransportador": {
             "title": "String",
             "type": "string",
             "nullable": true
           },
-          "providerInss": {
+          "INSSTransportador": {
             "title": "String",
             "type": "string",
             "nullable": true
           },
-          "providerRetInssOtherCompany": {
+          "RetencaoINSSOutraEmpresa": {
             "title": "Boolean",
             "type": "boolean"
           },
-          "providerPublicPlace": {
+          "LogradouroTransportador": {
             "title": "String",
             "type": "string",
             "nullable": true
           },
-          "providerNumber": {
+          "NumeroTransportador": {
             "title": "String",
             "type": "string",
             "nullable": true
           },
-          "providerState": {
+          "UFTransportador": {
             "title": "String",
             "type": "string",
             "nullable": true
           },
-          "providerCity": {
+          "CidadeTransportador": {
             "title": "String",
             "type": "string",
             "nullable": true
           },
-          "providerNeighborhood": {
+          "BairroTransportador": {
             "title": "String",
             "type": "string",
             "nullable": true
           },
-          "providerPostalCode": {
+          "CEPTransportador": {
             "title": "Nullable`1.Int64",
             "type": "integer",
             "format": "int64",
             "nullable": true
           },
-          "providerCityCode": {
+          "IBGETransportador": {
             "title": "Nullable`1.Int64",
             "type": "integer",
             "format": "int64",
             "nullable": true
           },
-          "senderName": {
+          "NomeRemetente": {
             "title": "String",
             "type": "string",
             "nullable": true
           },
-          "senderCnpj": {
+          "CNPJRemetente": {
             "title": "String",
             "type": "string",
             "nullable": true
           },
-          "senderPublicPlace": {
+          "LogradouroRemetente": {
             "title": "String",
             "type": "string",
             "nullable": true
           },
-          "senderNumber": {
+          "NumeroRemetente": {
             "title": "String",
             "type": "string",
             "nullable": true
           },
-          "senderState": {
+          "UFRemetente": {
             "title": "String",
             "type": "string",
             "nullable": true
           },
-          "senderCity": {
+          "CidadeRemetente": {
             "title": "String",
             "type": "string",
             "nullable": true
           },
-          "senderNeighborhood": {
+          "BairroRemetente": {
             "title": "String",
             "type": "string",
             "nullable": true
           },
-          "senderPostalCode": {
+          "CEPRemetente": {
             "title": "Nullable`1.Int64",
             "type": "integer",
             "format": "int64",
             "nullable": true
           },
-          "senderCityCode": {
+          "IBGERemetente": {
             "title": "Nullable`1.Int64",
             "type": "integer",
             "format": "int64",
             "nullable": true
           },
-          "receiverName": {
+          "NomeDestinatario": {
             "title": "String",
             "type": "string",
             "nullable": true
           },
-          "receiverCnpj": {
+          "CNPJDestinatario": {
             "title": "String",
             "type": "string",
             "nullable": true
           },
-          "receiverPublicPlace": {
+          "LogradouroDestinatario": {
             "title": "String",
             "type": "string",
             "nullable": true
           },
-          "receiverNumber": {
+          "NumeroDestinatario": {
             "title": "String",
             "type": "string",
             "nullable": true
           },
-          "receiverState": {
+          "DestinatarioUF": {
             "title": "String",
             "type": "string",
             "nullable": true
           },
-          "receiverCity": {
+          "DestinatarioCidade": {
             "title": "String",
             "type": "string",
             "nullable": true
           },
-          "receiverNeighborhood": {
+          "DestinatarioBairro": {
             "title": "String",
             "type": "string",
             "nullable": true
           },
-          "receiverPostalCode": {
+          "DestinatarioCEP": {
             "title": "Nullable`1.Int64",
             "type": "integer",
             "format": "int64",
             "nullable": true
           },
-          "receiverCityCode": {
+          "DestinatarioIBGE": {
             "title": "Nullable`1.Int64",
             "type": "integer",
             "format": "int64",
             "nullable": true
           },
-          "grossPaidValue": {
+          "ValorLiquidoPago": {
             "title": "Decimal",
             "type": "number",
             "format": "double"
           },
-          "liquidPaidValue": {
+          "ValorBrutoPago": {
             "title": "Decimal",
             "type": "number",
             "format": "double"
           },
-          "grossValuePaid": {
-            "title": "Decimal",
-            "type": "number",
-            "format": "double"
-          },
-          "serviceDescriptions": {
+          "DescricaoServicos": {
             "title": "String",
             "type": "string",
             "nullable": true
           },
-          "inssBaseValue": {
+          "ValorBaseINSS": {
             "title": "Nullable`1.Decimal",
             "type": "number",
             "format": "double",
             "nullable": true
           },
-          "inssAliquot": {
+          "AliquotaINSS": {
             "title": "Decimal",
             "type": "number",
             "format": "double"
           },
-          "inssRealvalue": {
+          "ValorRealINSS": {
             "title": "Decimal",
             "type": "number",
             "format": "double"
           },
-          "inssAccumulatedTaxValue": {
+          "ValorAcumuladoINSS": {
             "title": "Decimal",
             "type": "number",
             "format": "double"
           },
-          "inssAccumulatedBCValue": {
+          "ValorAcumuladoBCINSS": {
             "title": "Decimal",
             "type": "number",
             "format": "double"
           },
-          "irrfBaseValue": {
+          "ValorBaseIRRF": {
             "title": "Nullable`1.Decimal",
             "type": "number",
             "format": "double",
             "nullable": true
           },
-          "irrfAliquot": {
+          "AliquotaIRRF": {
             "title": "Decimal",
             "type": "number",
             "format": "double"
           },
-          "irrfRealvalue": {
+          "ValorRealIRRF": {
             "title": "Decimal",
             "type": "number",
             "format": "double"
           },
-          "sestBaseValue": {
+          "ValorBaseSest": {
             "title": "Nullable`1.Decimal",
             "type": "number",
             "format": "double",
             "nullable": true
           },
-          "sestAliquot": {
+          "AliquotaSest": {
             "title": "Decimal",
             "type": "number",
             "format": "double"
           },
-          "sestRealvalue": {
+          "ValorRealSest": {
             "title": "Decimal",
             "type": "number",
             "format": "double"
           },
-          "senatBaseValue": {
+          "ValorBaseSenat": {
             "title": "Nullable`1.Decimal",
             "type": "number",
             "format": "double",
             "nullable": true
           },
-          "senatAliquot": {
+          "AliquotaSenat": {
             "title": "Decimal",
             "type": "number",
             "format": "double"
           },
-          "senatRealvalue": {
+          "ValorRealSenat": {
             "title": "Decimal",
             "type": "number",
             "format": "double"
           },
-          "travelDocuments": {
+          "DocumentosViagem": {
             "title": "String",
             "type": "string",
             "nullable": true
@@ -20756,55 +20751,55 @@
             "type": "string",
             "format": "date-time"
           },
-          "customIdentifier": {
+          "Identificador": {
             "title": "String",
             "type": "string",
             "nullable": true
           },
-          "name": {
+          "Nome": {
             "title": "String",
             "type": "string",
             "nullable": true
           },
-          "cpfCnpj": {
+          "CPFCNPJ": {
             "title": "String",
             "type": "string",
             "nullable": true
           },
-          "rntrc": {
+          "RNTRC": {
             "title": "Nullable`1.Int32",
             "type": "integer",
             "format": "int32",
             "nullable": true
           },
-          "stateRegistration": {
+          "IE": {
             "title": "Nullable`1.Int64",
             "type": "integer",
             "format": "int64",
             "nullable": true
           },
-          "publicPlace": {
+          "Logradouro": {
             "title": "String",
             "type": "string",
             "nullable": true
           },
-          "number": {
+          "Numero": {
             "title": "String",
             "type": "string",
             "nullable": true
           },
-          "state": {
+          "UF": {
             "title": "String",
             "type": "string",
             "nullable": true
           },
-          "postalCode": {
+          "CEP": {
             "title": "Nullable`1.Int32",
             "type": "integer",
             "format": "int32",
             "nullable": true
           },
-          "cityCode": {
+          "IBGE": {
             "title": "Nullable`1.Int32",
             "type": "integer",
             "format": "int32",
@@ -20827,68 +20822,68 @@
             "type": "string",
             "format": "date-time"
           },
-          "customIdentifier": {
+          "Identificador": {
             "title": "String",
             "type": "string",
             "nullable": true
           },
-          "name": {
+          "Nome": {
             "title": "String",
             "type": "string",
             "nullable": true
           },
-          "cpfCnpj": {
+          "CNPJCPF": {
             "title": "String",
             "type": "string",
             "nullable": true
           },
-          "rntrc": {
+          "RNTRC": {
             "title": "Nullable`1.Int32",
             "type": "integer",
             "format": "int32",
             "nullable": true
           },
-          "stateRegistration": {
+          "IE": {
             "title": "Nullable`1.Int64",
             "type": "integer",
             "format": "int64",
             "nullable": true
           },
-          "publicPlace": {
+          "Logradouro": {
             "title": "String",
             "type": "string",
             "nullable": true
           },
-          "number": {
+          "Numero": {
             "title": "String",
             "type": "string",
             "nullable": true
           },
-          "state": {
+          "UF": {
             "title": "String",
             "type": "string",
             "nullable": true
           },
-          "postalCode": {
+          "CEP": {
             "title": "Nullable`1.Int32",
             "type": "integer",
             "format": "int32",
             "nullable": true
           },
-          "cityCode": {
+          "IBGE": {
             "title": "Nullable`1.Int32",
             "type": "integer",
             "format": "int32",
             "nullable": true
           },
-          "tollReceiptType": {
+          "FormaRecebimentoPedagio": {
             "$ref": "#/components/schemas/TollReceiptType"
           },
-          "freightReceiptType": {
+          "FormaRecebimentoFrete": {
             "$ref": "#/components/schemas/FreightReceiptType"
           },
-          "bankData": {
-            "$ref": "#/components/schemas/BankDataViewModel"
+          "DadosBancarios": {
+            "$ref": "#/components/schemas/DadosBancarios"
           }
         },
         "additionalProperties": false

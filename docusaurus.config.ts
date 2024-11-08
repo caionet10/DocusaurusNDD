@@ -54,9 +54,10 @@ const config: Config = {
           petstore: {
             specPath: "spec/swagger.json",
             outputDir: "docs/api-v1",
-            hideSendButton: false,
+            //hideSendButton: false,
             showExtensions: true,
-            version: 'v',
+            showSchemas: true,
+            //version: 'v',
             sidebarOptions: {
               groupPathsBy: "tag",
               categoryLinkSource: "auto",

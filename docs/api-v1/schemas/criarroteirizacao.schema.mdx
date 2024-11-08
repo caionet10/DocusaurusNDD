@@ -1,0 +1,33 @@
+---
+id: criarroteirizacao
+title: "CriarRoteirizacao"
+description: ""
+sidebar_label: "CriarRoteirizacao"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"LocalOrigem":"string","DefinicaoRota":0,"CalcularRetorno":true,"Paradas":[{"Sequencia":0,"Tipo":1,"Local":"string"}]}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"CriarRoteirizacao"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"title":"CriarRoteirizacao","type":"object","properties":{"LocalOrigem":{"title":"String","type":"string","nullable":true},"DefinicaoRota":{"title":"RouteDefinitionType","enum":[0,1,2],"type":"integer","format":"int32"},"CalcularRetorno":{"title":"Nullable`1.Boolean","type":"boolean","nullable":true},"Paradas":{"title":"List`1.CriarParada","type":"array","items":{"title":"CriarParada","type":"object","properties":{"Sequencia":{"title":"Nullable`1.Int32","type":"integer","format":"int32","nullable":true},"Tipo":{"title":"RouteType","enum":[1,2],"type":"integer","format":"int32"},"Local":{"title":"String","type":"string","nullable":true}},"additionalProperties":false},"nullable":true}},"additionalProperties":false}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

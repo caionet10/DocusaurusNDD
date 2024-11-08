@@ -1,0 +1,33 @@
+---
+id: relashionshipdatadto-1-criarveiculo
+title: "RelashionshipDataDto`1.CriarVeiculo"
+description: ""
+sidebar_label: "RelashionshipDataDto`1.CriarVeiculo"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"Identificador":"string","Dados":{"Identificador":"string","Placa":"string","TipoVeiculo":1,"Rntrc":0,"Modelo":"string","Tara":0,"Capacidade":0,"TipoRodado":1,"TipoCarroceria":0,"Categoria":0,"OperadoraTagPedagio":1,"NumeroTagPedagio":"string","QuantidadeEixos":0,"ProprietarioVeiculo":{"Identificador":"string","Dados":{"Identificador":"string","CNPJCPF":"string","Nome":"string","RNTRC":0,"IE":0,"Logradouro":"string","Numero":"string","UF":"string","CEP":0,"IBGE":0}}}}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"RelashionshipDataDto`1.CriarVeiculo"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"title":"RelashionshipDataDto`1.CriarVeiculo","type":"object","properties":{"Identificador":{"title":"String","type":"string","nullable":true},"Dados":{"title":"CriarVeiculo","type":"object","properties":{"Identificador":{"title":"String","type":"string","nullable":true},"Placa":{"title":"String","type":"string","nullable":true},"TipoVeiculo":{"title":"VehicleType","enum":[1,2],"type":"integer","format":"int32"},"Rntrc":{"title":"Nullable`1.Int32","type":"integer","format":"int32","nullable":true},"Modelo":{"title":"String","type":"string","nullable":true},"Tara":{"title":"Nullable`1.Single","type":"number","format":"float","nullable":true},"Capacidade":{"title":"Nullable`1.Single","type":"number","format":"float","nullable":true},"TipoRodado":{"title":"RotatedType","enum":[1,2,3,4,5,6],"type":"integer","format":"int32"},"TipoCarroceria":{"title":"BodyworkType","enum":[0,1,2,3,4,5],"type":"integer","format":"int32"},"Categoria":{"title":"TollCategory","enum":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],"type":"integer","format":"int32"},"OperadoraTagPedagio":{"title":"TollTagSupplier","enum":[1,2,3],"type":"integer","format":"int32"},"NumeroTagPedagio":{"title":"String","type":"string","nullable":true},"QuantidadeEixos":{"title":"Nullable`1.Int32","type":"integer","format":"int32","nullable":true},"ProprietarioVeiculo":{"title":"RelashionshipDataDto`1.CriarProprietario","type":"object","properties":{"Identificador":{"title":"String","type":"string","nullable":true},"Dados":{"title":"CriarProprietario","type":"object","properties":{"Identificador":{"title":"String","type":"string","nullable":true},"CNPJCPF":{"title":"String","type":"string","nullable":true},"Nome":{"title":"String","type":"string","nullable":true},"RNTRC":{"title":"Nullable`1.Int32","type":"integer","format":"int32","nullable":true},"IE":{"title":"Nullable`1.Int64","type":"integer","format":"int64","nullable":true},"Logradouro":{"title":"String","type":"string","nullable":true},"Numero":{"title":"String","type":"string","nullable":true},"UF":{"title":"String","type":"string","nullable":true},"CEP":{"title":"Nullable`1.Int32","type":"integer","format":"int32","nullable":true},"IBGE":{"title":"Nullable`1.Int32","type":"integer","format":"int32","nullable":true}},"additionalProperties":false}},"additionalProperties":false}},"additionalProperties":false}},"additionalProperties":false}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

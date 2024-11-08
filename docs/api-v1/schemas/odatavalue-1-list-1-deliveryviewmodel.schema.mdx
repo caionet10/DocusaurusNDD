@@ -1,0 +1,33 @@
+---
+id: odatavalue-1-list-1-deliveryviewmodel
+title: "ODataValue`1.List`1.DeliveryViewModel"
+description: ""
+sidebar_label: "ODataValue`1.List`1.DeliveryViewModel"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"value":[{"id":"3fa85f64-5717-4562-b3fc-2c963f66afa6","IdentificadorViagem":"3fa85f64-5717-4562-b3fc-2c963f66afa6","TipoDocumento":0,"ChaveAcesso":"string","TipoNotificacao":0,"Mensagem":"string"}]}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"ODataValue`1.List`1.DeliveryViewModel"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"title":"ODataValue`1.List`1.DeliveryViewModel","type":"object","properties":{"value":{"title":"List`1.DeliveryViewModel","type":"array","items":{"title":"DeliveryViewModel","type":"object","properties":{"id":{"title":"Guid","type":"string","format":"uuid"},"IdentificadorViagem":{"title":"Guid","type":"string","format":"uuid"},"TipoDocumento":{"title":"TypeDocument","enum":[0,1],"type":"integer","format":"int32"},"ChaveAcesso":{"title":"String","type":"string","nullable":true},"TipoNotificacao":{"title":"TypeNotification","enum":[0,1],"type":"integer","format":"int32"},"Mensagem":{"title":"String","type":"string","nullable":true}},"additionalProperties":false},"nullable":true}},"additionalProperties":false}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

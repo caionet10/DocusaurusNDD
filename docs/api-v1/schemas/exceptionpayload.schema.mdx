@@ -1,0 +1,33 @@
+---
+id: exceptionpayload
+title: "ExceptionPayload"
+description: ""
+sidebar_label: "ExceptionPayload"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"status":0,"error":"string","message":"string","errors":[{"propertyName":"string","errorMessage":"string","severity":0,"errorCode":"string","formattedMessagePlaceholderValues":{}}]}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"ExceptionPayload"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"title":"ExceptionPayload","type":"object","properties":{"status":{"title":"Int32","type":"integer","format":"int32"},"error":{"title":"String","type":"string","nullable":true},"message":{"title":"String","type":"string","nullable":true},"errors":{"title":"IEnumerable`1.ValidationFailure","type":"array","items":{"title":"ValidationFailure","type":"object","properties":{"propertyName":{"title":"String","type":"string","nullable":true},"errorMessage":{"title":"String","type":"string","nullable":true},"attemptedValue":{"title":"Object","nullable":true},"customState":{"title":"Object","nullable":true},"severity":{"title":"Severity","enum":[0,1,2],"type":"integer","format":"int32"},"errorCode":{"title":"String","type":"string","nullable":true},"formattedMessagePlaceholderValues":{"title":"Dictionary`2.String.Object","type":"object","additionalProperties":{"title":"Object","nullable":true},"nullable":true}},"additionalProperties":false},"nullable":true}},"additionalProperties":false}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

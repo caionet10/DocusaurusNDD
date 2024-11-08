@@ -1,0 +1,33 @@
+---
+id: relashionshipdatadto-1-criarprestador
+title: "RelashionshipDataDto`1.CriarPrestador"
+description: ""
+sidebar_label: "RelashionshipDataDto`1.CriarPrestador"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"Identificador":"string","Dados":{"Identificador":"string","CNPJCPF":"string","Nome":"string","RNTRC":0,"IE":0,"Logradouro":"string","Numero":"string","UF":"string","CEP":0,"IBGE":0,"FormaRecebimentoFrete":1,"FormaRecebimentoPedagio":1,"DadosBancarios":{"ChavePix":"string","Agencia":0,"Conta":0,"DigVerificador":0,"CodigoBanco":0,"CPFCNPJBeneficiario":"string"}}}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"RelashionshipDataDto`1.CriarPrestador"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"title":"RelashionshipDataDto`1.CriarPrestador","type":"object","properties":{"Identificador":{"title":"String","type":"string","nullable":true},"Dados":{"title":"CriarPrestador","type":"object","properties":{"Identificador":{"title":"String","type":"string","nullable":true},"CNPJCPF":{"title":"String","type":"string","nullable":true},"Nome":{"title":"String","type":"string","nullable":true},"RNTRC":{"title":"Nullable`1.Int32","type":"integer","format":"int32","nullable":true},"IE":{"title":"Nullable`1.Int64","type":"integer","format":"int64","nullable":true},"Logradouro":{"title":"String","type":"string","nullable":true},"Numero":{"title":"String","type":"string","nullable":true},"UF":{"title":"String","type":"string","nullable":true},"CEP":{"title":"Nullable`1.Int32","type":"integer","format":"int32","nullable":true},"IBGE":{"title":"Nullable`1.Int32","type":"integer","format":"int32","nullable":true},"FormaRecebimentoFrete":{"title":"FreightReceiptType","enum":[1,2,3,4],"type":"integer","format":"int32"},"FormaRecebimentoPedagio":{"title":"TollReceiptType","enum":[1,2],"type":"integer","format":"int32"},"DadosBancarios":{"title":"BankDataCommand","type":"object","properties":{"ChavePix":{"title":"String","type":"string","nullable":true},"Agencia":{"title":"Nullable`1.UInt16","type":"integer","format":"int32","nullable":true},"Conta":{"title":"Nullable`1.Int64","type":"integer","format":"int64","nullable":true},"DigVerificador":{"title":"Nullable`1.Byte","type":"integer","format":"int32","nullable":true},"CodigoBanco":{"title":"Nullable`1.UInt16","type":"integer","format":"int32","nullable":true},"CPFCNPJBeneficiario":{"title":"String","type":"string","nullable":true}},"additionalProperties":false}},"additionalProperties":false}},"additionalProperties":false}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            
