@@ -17,7 +17,7 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "api-v1/listagem-de-comprovantes-e-ocorrencias-de-entrega",
+          id: "api-v1/entrega",
           label: "Listagem de comprovantes e ocorrências de entrega",
           className: "api-method get",
         },
@@ -34,7 +34,7 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "api-v1/listagem-de-faturas",
+          id: "api-v1/fatura",
           label: "Listagem de faturas",
           className: "api-method get",
         },
@@ -51,13 +51,13 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "api-v1/listagem-de-filiais",
+          id: "api-v1/filial",
           label: "Listagem de filiais",
           className: "api-method get",
         },
         {
           type: "doc",
-          id: "api-v1/criacao-de-uma-nova-filial",
+          id: "api-v1/filial",
           label: "Criação de uma nova filial",
           className: "api-method post",
         },
@@ -92,13 +92,13 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "api-v1/listagem-de-motoristas",
+          id: "api-v1/motorista",
           label: "Listagem de motoristas",
           className: "api-method get",
         },
         {
           type: "doc",
-          id: "api-v1/criacao-de-um-novo-motorista",
+          id: "api-v1/motorista",
           label: "Criação de um novo motorista",
           className: "api-method post",
         },
@@ -133,13 +133,13 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "api-v1/criacao-de-um-novo-prestador",
+          id: "api-v1/prestador",
           label: "Criação de um novo prestador",
           className: "api-method post",
         },
         {
           type: "doc",
-          id: "api-v1/listagem-de-prestadores",
+          id: "api-v1/prestador",
           label: "Listagem de prestadores",
           className: "api-method get",
         },
@@ -186,13 +186,13 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "api-v1/listagem-de-proprietarios",
+          id: "api-v1/proprietario",
           label: "Listagem de proprietários",
           className: "api-method get",
         },
         {
           type: "doc",
-          id: "api-v1/criacao-de-um-novo-proprietario",
+          id: "api-v1/proprietario",
           label: "Criação de um novo proprietário",
           className: "api-method post",
         },
@@ -215,13 +215,13 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "api-v1/listagem-de-veiculos",
+          id: "api-v1/veiculo",
           label: "Listagem de veículos",
           className: "api-method get",
         },
         {
           type: "doc",
-          id: "api-v1/criacao-de-um-novo-veiculo",
+          id: "api-v1/veiculo",
           label: "Criação de um novo veículo",
           className: "api-method post",
         },
@@ -256,7 +256,7 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "api-v1/criacao-de-um-nova-viagem",
+          id: "api-v1/viagem",
           label: "Criação de um nova viagem",
           className: "api-method post",
         },
@@ -613,5 +613,4 @@ const sidebar: SidebarsConfig = {
   ],
 };
 
-//export default sidebar.apisidebar;
-export default sidebar;
+export default sidebar; //.apisidebar;

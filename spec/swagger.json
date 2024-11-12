@@ -4,22 +4,20 @@
     "title": "NddElog.Core.Service.Api",
     "version": "1.0"
   },
+  "servers": [
+		{
+		  "url": "http://localhost:9010"
+		}
+	],
   "paths": {
-    "/Entrega": {
+    "/api/v1/Entrega": {
       "get": {
         "tags": [
           "Entrega"
         ],
         "summary": "Listagem de comprovantes e ocorrências de entrega",
+        "operationId": "Entrega",
         "parameters": [
-          {
-            "name": "api-version",
-            "in": "query",
-            "schema": {
-              "title": "String",
-              "type": "string"
-            }
-          },
           {
             "name": "select",
             "in": "query",
@@ -680,21 +678,14 @@
         }
       }
     },
-    "/Fatura": {
+    "/api/v1/Fatura": {
       "get": {
         "tags": [
           "Fatura"
         ],
         "summary": "Listagem de faturas",
+        "operationId": "Fatura",
         "parameters": [
-          {
-            "name": "api-version",
-            "in": "query",
-            "schema": {
-              "title": "String",
-              "type": "string"
-            }
-          },
           {
             "name": "select",
             "in": "query",
@@ -1355,21 +1346,14 @@
         }
       }
     },
-    "/Filial": {
+    "/api/v1/Filial": {
       "get": {
         "tags": [
           "Filial"
         ],
         "summary": "Listagem de filiais",
+        "operationId": "Filial",
         "parameters": [
-          {
-            "name": "api-version",
-            "in": "query",
-            "schema": {
-              "title": "String",
-              "type": "string"
-            }
-          },
           {
             "name": "select",
             "in": "query",
@@ -2034,16 +2018,7 @@
           "Filial"
         ],
         "summary": "Criação de uma nova filial",
-        "parameters": [
-          {
-            "name": "api-version",
-            "in": "query",
-            "schema": {
-              "title": "String",
-              "type": "string"
-            }
-          }
-        ],
+        "operationId": "Filial",
         "requestBody": {
           "description": "",
           "content": {
@@ -2668,7 +2643,7 @@
         }
       }
     },
-    "/Filial/{customIdentifier}": {
+    "/api/v1/Filial/{customIdentifier}": {
       "get": {
         "tags": [
           "Filial"
@@ -2680,14 +2655,6 @@
             "in": "path",
             "description": "Identificador",
             "required": true,
-            "schema": {
-              "title": "String",
-              "type": "string"
-            }
-          },
-          {
-            "name": "api-version",
-            "in": "query",
             "schema": {
               "title": "String",
               "type": "string"
@@ -3327,14 +3294,6 @@
               "title": "String",
               "type": "string"
             }
-          },
-          {
-            "name": "api-version",
-            "in": "query",
-            "schema": {
-              "title": "String",
-              "type": "string"
-            }
           }
         ],
         "responses": {
@@ -3751,7 +3710,7 @@
         }
       }
     },
-    "/Filial/{actualCustomIdentifier}": {
+    "/api/v1/Filial/{actualCustomIdentifier}": {
       "patch": {
         "tags": [
           "Filial"
@@ -3763,14 +3722,6 @@
             "in": "path",
             "description": "Identificador",
             "required": true,
-            "schema": {
-              "title": "String",
-              "type": "string"
-            }
-          },
-          {
-            "name": "api-version",
-            "in": "query",
             "schema": {
               "title": "String",
               "type": "string"
@@ -4401,21 +4352,14 @@
         }
       }
     },
-    "/Motorista": {
+    "/api/v1/Motorista": {
       "get": {
         "tags": [
           "Motorista"
         ],
         "summary": "Listagem de motoristas",
+        "operationId": "Motorista",
         "parameters": [
-          {
-            "name": "api-version",
-            "in": "query",
-            "schema": {
-              "title": "String",
-              "type": "string"
-            }
-          },
           {
             "name": "select",
             "in": "query",
@@ -5080,16 +5024,7 @@
           "Motorista"
         ],
         "summary": "Criação de um novo motorista",
-        "parameters": [
-          {
-            "name": "api-version",
-            "in": "query",
-            "schema": {
-              "title": "String",
-              "type": "string"
-            }
-          }
-        ],
+        "operationId": "Motorista",
         "requestBody": {
           "description": "",
           "content": {
@@ -5714,7 +5649,7 @@
         }
       }
     },
-    "/Motorista/{CustomIdentifier}": {
+    "/api/v1/Motorista/{CustomIdentifier}": {
       "get": {
         "tags": [
           "Motorista"
@@ -5726,14 +5661,6 @@
             "in": "path",
             "description": "Identificador",
             "required": true,
-            "schema": {
-              "title": "String",
-              "type": "string"
-            }
-          },
-          {
-            "name": "api-version",
-            "in": "query",
             "schema": {
               "title": "String",
               "type": "string"
@@ -6359,7 +6286,7 @@
         }
       }
     },
-    "/Motorista/{ActualCustomIdentifier}": {
+    "/api/v1/Motorista/{ActualCustomIdentifier}": {
       "patch": {
         "tags": [
           "Motorista"
@@ -6371,14 +6298,6 @@
             "in": "path",
             "description": "Identificador",
             "required": true,
-            "schema": {
-              "title": "String",
-              "type": "string"
-            }
-          },
-          {
-            "name": "api-version",
-            "in": "query",
             "schema": {
               "title": "String",
               "type": "string"
@@ -7009,7 +6928,7 @@
         }
       }
     },
-    "/Motorista/{customIdentifier}": {
+    "/api/v1/Motorista/{customIdentifier}": {
       "delete": {
         "tags": [
           "Motorista"
@@ -7021,14 +6940,6 @@
             "in": "path",
             "description": "Identificador",
             "required": true,
-            "schema": {
-              "title": "String",
-              "type": "string"
-            }
-          },
-          {
-            "name": "api-version",
-            "in": "query",
             "schema": {
               "title": "String",
               "type": "string"
@@ -7449,22 +7360,13 @@
         }
       }
     },
-    "/Prestador": {
+    "/api/v1/Prestador": {
       "post": {
         "tags": [
           "Prestador"
         ],
         "summary": "Criação de um novo prestador",
-        "parameters": [
-          {
-            "name": "api-version",
-            "in": "query",
-            "schema": {
-              "title": "String",
-              "type": "string"
-            }
-          }
-        ],
+        "operationId": "Prestador",
         "requestBody": {
           "description": "",
           "content": {
@@ -8338,15 +8240,8 @@
           "Prestador"
         ],
         "summary": "Listagem de prestadores",
+        "operationId": "Prestador",
         "parameters": [
-          {
-            "name": "api-version",
-            "in": "query",
-            "schema": {
-              "title": "String",
-              "type": "string"
-            }
-          },
           {
             "name": "select",
             "in": "query",
@@ -9007,7 +8902,7 @@
         }
       }
     },
-    "/Prestador/{customIdentifier}": {
+    "/api/v1/Prestador/{customIdentifier}": {
       "get": {
         "tags": [
           "Prestador"
@@ -9019,14 +8914,6 @@
             "in": "path",
             "description": "Identificador",
             "required": true,
-            "schema": {
-              "title": "String",
-              "type": "string"
-            }
-          },
-          {
-            "name": "api-version",
-            "in": "query",
             "schema": {
               "title": "String",
               "type": "string"
@@ -9461,14 +9348,6 @@
               "title": "String",
               "type": "string"
             }
-          },
-          {
-            "name": "api-version",
-            "in": "query",
-            "schema": {
-              "title": "String",
-              "type": "string"
-            }
           }
         ],
         "responses": {
@@ -9885,7 +9764,7 @@
         }
       }
     },
-    "/Prestador/{actualCustomIdentifier}": {
+    "/api/v1/Prestador/{actualCustomIdentifier}": {
       "patch": {
         "tags": [
           "Prestador"
@@ -9897,14 +9776,6 @@
             "in": "path",
             "description": "Identificador",
             "required": true,
-            "schema": {
-              "title": "String",
-              "type": "string"
-            }
-          },
-          {
-            "name": "api-version",
-            "in": "query",
             "schema": {
               "title": "String",
               "type": "string"
@@ -10780,7 +10651,7 @@
         }
       }
     },
-    "/Proprietario/{customIdentifier}": {
+    "/api/v1/Proprietario/{customIdentifier}": {
       "delete": {
         "tags": [
           "Proprietario"
@@ -10792,14 +10663,6 @@
             "in": "path",
             "description": "Identificador",
             "required": true,
-            "schema": {
-              "title": "String",
-              "type": "string"
-            }
-          },
-          {
-            "name": "api-version",
-            "in": "query",
             "schema": {
               "title": "String",
               "type": "string"
@@ -11234,14 +11097,6 @@
               "title": "String",
               "type": "string"
             }
-          },
-          {
-            "name": "api-version",
-            "in": "query",
-            "schema": {
-              "title": "String",
-              "type": "string"
-            }
           }
         ],
         "responses": {
@@ -11658,21 +11513,14 @@
         }
       }
     },
-    "/Proprietario": {
+    "/api/v1/Proprietario": {
       "get": {
         "tags": [
           "Proprietario"
         ],
         "summary": "Listagem de proprietários",
+        "operationId": "Proprietario",
         "parameters": [
-          {
-            "name": "api-version",
-            "in": "query",
-            "schema": {
-              "title": "String",
-              "type": "string"
-            }
-          },
           {
             "name": "select",
             "in": "query",
@@ -12337,16 +12185,7 @@
           "Proprietario"
         ],
         "summary": "Criação de um novo proprietário",
-        "parameters": [
-          {
-            "name": "api-version",
-            "in": "query",
-            "schema": {
-              "title": "String",
-              "type": "string"
-            }
-          }
-        ],
+        "operationId": "Proprietario",
         "requestBody": {
           "description": "",
           "content": {
@@ -13216,7 +13055,7 @@
         }
       }
     },
-    "/Proprietario/{actualCustomIdentifier}": {
+    "/api/v1/Proprietario/{actualCustomIdentifier}": {
       "patch": {
         "tags": [
           "Proprietario"
@@ -13228,14 +13067,6 @@
             "in": "path",
             "description": "Identificador",
             "required": true,
-            "schema": {
-              "title": "String",
-              "type": "string"
-            }
-          },
-          {
-            "name": "api-version",
-            "in": "query",
             "schema": {
               "title": "String",
               "type": "string"
@@ -14111,21 +13942,14 @@
         }
       }
     },
-    "/Veiculo": {
+    "/api/v1/Veiculo": {
       "get": {
         "tags": [
           "Veiculo"
         ],
         "summary": "Listagem de veículos",
+        "operationId": "Veiculo",
         "parameters": [
-          {
-            "name": "api-version",
-            "in": "query",
-            "schema": {
-              "title": "String",
-              "type": "string"
-            }
-          },
           {
             "name": "select",
             "in": "query",
@@ -14561,16 +14385,7 @@
           "Veiculo"
         ],
         "summary": "Criação de um novo veículo",
-        "parameters": [
-          {
-            "name": "api-version",
-            "in": "query",
-            "schema": {
-              "title": "String",
-              "type": "string"
-            }
-          }
-        ],
+        "operationId": "Veiculo",
         "requestBody": {
           "description": "",
           "content": {
@@ -15440,7 +15255,7 @@
         }
       }
     },
-    "/Veiculo/{CustomIdentifier}": {
+    "/api/v1/Veiculo/{CustomIdentifier}": {
       "get": {
         "tags": [
           "Veiculo"
@@ -15452,14 +15267,6 @@
             "in": "path",
             "description": "Identificador",
             "required": true,
-            "schema": {
-              "title": "String",
-              "type": "string"
-            }
-          },
-          {
-            "name": "api-version",
-            "in": "query",
             "schema": {
               "title": "String",
               "type": "string"
@@ -15894,14 +15701,6 @@
               "title": "String",
               "type": "string"
             }
-          },
-          {
-            "name": "api-version",
-            "in": "query",
-            "schema": {
-              "title": "String",
-              "type": "string"
-            }
           }
         ],
         "responses": {
@@ -16318,7 +16117,7 @@
         }
       }
     },
-    "/Veiculo/{actualCustomIdentifier}": {
+    "/api/v1/Veiculo/{actualCustomIdentifier}": {
       "patch": {
         "tags": [
           "Veiculo"
@@ -16330,14 +16129,6 @@
             "in": "path",
             "description": "Identificador",
             "required": true,
-            "schema": {
-              "title": "String",
-              "type": "string"
-            }
-          },
-          {
-            "name": "api-version",
-            "in": "query",
             "schema": {
               "title": "String",
               "type": "string"
@@ -17213,22 +17004,13 @@
         }
       }
     },
-    "/Viagem": {
+    "/api/v1/Viagem": {
       "post": {
         "tags": [
           "Viagem"
         ],
         "summary": "Criação de um nova viagem",
-        "parameters": [
-          {
-            "name": "api-version",
-            "in": "query",
-            "schema": {
-              "title": "String",
-              "type": "string"
-            }
-          }
-        ],
+        "operationId": "Viagem",
         "requestBody": {
           "description": "",
           "content": {
@@ -17853,7 +17635,7 @@
         }
       }
     },
-    "/Viagem/{customIdentifier}/Cancel": {
+    "/api/v1/Viagem/{customIdentifier}/Cancel": {
       "patch": {
         "tags": [
           "Viagem"
@@ -17865,14 +17647,6 @@
             "in": "path",
             "description": "Identificador",
             "required": true,
-            "schema": {
-              "title": "String",
-              "type": "string"
-            }
-          },
-          {
-            "name": "api-version",
-            "in": "query",
             "schema": {
               "title": "String",
               "type": "string"
@@ -18293,7 +18067,7 @@
         }
       }
     },
-    "/Viagem/{actualCustomIdentifier}": {
+    "/api/v1/Viagem/{actualCustomIdentifier}": {
       "patch": {
         "tags": [
           "Viagem"
@@ -18305,14 +18079,6 @@
             "in": "path",
             "description": "Identificador",
             "required": true,
-            "schema": {
-              "title": "String",
-              "type": "string"
-            }
-          },
-          {
-            "name": "api-version",
-            "in": "query",
             "schema": {
               "title": "String",
               "type": "string"

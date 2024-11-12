@@ -35,7 +35,7 @@ const config: Config = {
       'classic',
       {
         docs: {
-          sidebarPath: 'docs/api-v1/sidebar.ts', //docs/api-v1/sidebar.ts
+          sidebarPath: 'docs/api-v1/sidebar.ts',
           docItemComponent: "@theme/ApiItem", // Derived from docusaurus-theme-openapi
         },
         theme: {
@@ -54,10 +54,9 @@ const config: Config = {
           petstore: {
             specPath: "spec/swagger.json",
             outputDir: "docs/api-v1",
-            //hideSendButton: false,
+            hideSendButton: false,
             showExtensions: true,
             showSchemas: true,
-            //version: 'v',
             sidebarOptions: {
               groupPathsBy: "tag",
               categoryLinkSource: "auto",
