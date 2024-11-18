@@ -33,9 +33,9 @@ const config: Config = {
   presets: [
     [
       'classic',
-      {
-        docs: {
-          sidebarPath: 'docs/api-v1/sidebar.ts',
+      {        
+        docs: {          
+          sidebarPath: 'sidebar.ts',
           docItemComponent: "@theme/ApiItem", // Derived from docusaurus-theme-openapi
         },
         theme: {
@@ -48,23 +48,34 @@ const config: Config = {
     [
       'docusaurus-plugin-openapi-docs',
       {
-        id: "api", // plugin id
+        id: "apicore", // plugin id
         docsPluginId: "classic", // configured for preset-classic
         config: {
-          petstore: {
-            specPath: "spec/swagger.json",
-            outputDir: "docs/api-v1",
+          apicore: {
+            specPath: "spec/swagger_api_core.json",
+            outputDir: "docs/api_core_v1",
             hideSendButton: false,
             showExtensions: true,
-            showSchemas: true,
+            showSchemas: false,
             sidebarOptions: {
               groupPathsBy: "tag",
               categoryLinkSource: "auto",
             },
           } satisfies OpenApiPlugin.Options,
+          apiemissions: {
+            specPath: "spec/swagger_api_emissions.json",
+             outputDir: "docs/api_emissions_v1",
+             hideSendButton: false,
+             showExtensions: true,
+             showSchemas: false,
+             sidebarOptions: {
+                groupPathsBy: "tag",
+                categoryLinkSource: "info",
+             },
+           } satisfies OpenApiPlugin.Options,
         }
       },
-    ]
+    ],
   ],
   themes: ["docusaurus-theme-openapi-docs"],
   themeConfig: {
